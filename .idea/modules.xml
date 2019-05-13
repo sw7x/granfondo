@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/local.granfondo.com.iml" filepath="$PROJECT_DIR$/.idea/local.granfondo.com.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../laraveltest/.idea/pmtool.iml" filepath="$PROJECT_DIR$/../laraveltest/.idea/pmtool.iml" />
+    </modules>
+  </component>
+</project>

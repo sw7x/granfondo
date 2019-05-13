@@ -1,0 +1,265 @@
+/******************* Pricing Table Demo - 10 *****************/
+.demo10{background:#C0BFBF;padding:30px 0}
+.pricingTable10{text-align:center}
+.pricingTable10 .pricingTable-header{padding:30px 0;background:#00534E;position:relative;transition:all .3s ease 0s}
+.pricingTable10:hover .pricingTable-header{background:#FFBE29}
+.pricingTable10 .pricingTable-header:after,.pricingTable10 .pricingTable-header:before{content:"";width:16px;height:16px;border-radius:50%;border:1px solid #00534E;position:absolute;bottom:12px}
+.pricingTable10 .pricingTable-header:before{left:40px}
+.pricingTable10 .pricingTable-header:after{right:40px}
+.pricingTable10 .heading{font-size:20px;color:#fff;text-transform:uppercase;letter-spacing:2px;margin-top:0}
+.pricingTable10 .price-value{display:inline-block;position:relative;font-size:55px;font-weight:700;color:#FFBE29;transition:all .3s ease 0s}
+.pricingTable10:hover .price-value{color:#fff}
+.pricingTable10 .currency{font-size:30px;font-weight:700;position:absolute;top:6px;left:-19px}
+.pricingTable10 .month{font-size:16px;color:#fff;position:absolute;bottom:15px;right:-30px;text-transform:uppercase}
+.pricingTable10 .pricing-content{padding-top:50px;background:#fff;position:relative}
+.pricingTable10 .pricing-content:after,.pricingTable10 .pricing-content:before{content:"";width:16px;height:16px;border-radius:50%;border:1px solid #7c7c7c;position:absolute;top:12px}
+.pricingTable10 .pricing-content:before{left:40px}
+.pricingTable10 .pricing-content:after{right:40px}
+.pricingTable10 .pricing-content ul{padding:0 20px;margin:0;list-style:none}
+.pricingTable10 .pricing-content ul:after,.pricingTable10 .pricing-content ul:before{content:"";width:8px;height:46px;border-radius:3px;background:linear-gradient(to bottom,#818282 50%,#727373 50%);position:absolute;top:-22px;z-index:1;box-shadow:0 0 5px #707070;transition:all .3s ease 0s}
+.pricingTable10:hover .pricing-content ul:after,.pricingTable10:hover .pricing-content ul:before{background:linear-gradient(to bottom,#40c4db 50%,#34bacc 50%)}
+.pricingTable10 .pricing-content ul:before{left:44px}
+.pricingTable10 .pricing-content ul:after{right:44px}
+.pricingTable10 .pricing-content ul li{font-size:15px;font-weight:700;color:#777473;padding:10px 0;border-bottom:1px solid #00534E}
+.pricingTable10 .pricing-content ul li:last-child{border-bottom:none}
+.pricingTable10 .read{display:inline-block;font-size:16px;color:#fff;text-transform:uppercase;background:#00534E;padding:8px 25px;margin:30px 0;transition:all .3s ease 0s}
+.pricingTable10 .read:hover{text-decoration:none}
+.pricingTable10:hover .read{background:#FFBE29}
+
+@media screen and (max-width:990px){
+    .pricingTable10{margin-bottom:25px}
+}
+
+
+
+
+
+
+/* pricing table */
+.pricing-tables {
+    padding: 20px;
+}
+.pricing-tables h1 {
+    font-size: 48px;
+}
+.pricing-tables .plan.first {
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px !important;
+}
+.pricing-tables .plan.last {
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.pricing-tables .plan.recommended {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.pricing-tables .plan.recommended .head {
+    /*margin-bottom: 20px;*/
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.pricing-tables.attached .col-sm-4, .pricing-tables.attached .col-md-4, .pricing-tables.attached .col-sm-3, .pricing-tables.attached .col-md-3 {
+    padding-left: 0;
+    padding-right: 0;
+}
+.pricing-tables.attached .plan {
+    border-radius: 0;
+}
+.pricing-tables.attached .plan .head {
+    border-radius: 0;
+}
+/*.pricing-tables.attached .plan.recommended {
+border-radius: 4px;
+}*/
+/*.pricing-tables.attached .plan.recommended .head {
+border-top-left-radius: 4px;
+border-top-right-radius: 4px;
+}*/
+.pricing-tables.attached .plan.last {
+    border-bottom-right-radius: 4px;
+}
+.pricing-tables.attached .plan.last .head {
+    border-top-right-radius: 4px;
+}
+.pricing-tables.attached .plan.first {
+    border-bottom-left-radius: 4px;
+}
+.pricing-tables.attached .plan.first .head {
+    border-top-left-radius: 4px;
+}
+.plan {
+    box-shadow: 0 2px 2px rgba(10, 10, 10, 0.30) !important;
+    min-height: 100px;
+    background: #fff;
+    border-radius: 4px;
+    margin: 20px 0;
+    padding-bottom: 25px;
+    text-align: center;
+}
+.plan .head {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    padding: 12px 16px;
+    background: #EB7400;
+    color: #fff;
+
+
+
+}
+.plan .head h1, .plan .head h2, .plan .head h3 {
+    padding: 0;
+    margin: 0;
+    font-weight: 100%;
+    color: #fff;
+
+}
+.plan .price {
+    border-top: 1px solid #eee;
+    margin: 0 auto 30px auto;
+    width: 80%;
+}
+.plan .price h3 {
+    font-size: 82px;
+    vertical-align: top;
+    line-height: 1;
+}
+.plan .price h3 span {
+    font-size: 38px;
+    vertical-align: top;
+    position: relative;
+    margin: 6px 0 0 -7px;
+    display: inline-block;
+}
+.plan .price h4 {
+    color: #aaa;
+    font-size: 14px;
+}
+.plan .btn {
+    padding: 10px 30px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.plan ul {
+    list-style-type: none;
+    padding: 20px;
+    margin-top: 2px;
+}
+.plan ul li {
+    line-height: 22px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 400;
+}
+.plan ul li a {
+    text-decoration: underline;
+    color: #e6e9ed;
+}
+.plan ul li:last-child {
+    border-bottom: none;
+}
+.plan ul strong {
+    font-weight: 700;
+}
+.plan.recommended {
+    margin-top: 6px;
+    box-shadow: 0 0 22px rgba(10, 10, 10, 0.42);
+    position: relative;
+    z-index: 99;
+    border-radius: 4px;
+}
+.plan.recommended .head {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    background: #00534E;
+}
+.head.value{
+    background-color: #EB7400;
+    /*margin-bottom: 48px;*/
+    text-decoration-color: #;
+}
+.plan.recommended .btn {
+    margin-bottom: 10px;
+}
+@media screen and (min-width:770px) and (max-width:990px){
+    .plan .mediafix h3 {
+        font-size: 55px !important;
+        vertical-align: top;
+        line-height: 1;
+    }
+
+}
+
+
+
+/* cart page */
+.cartDiv.single-room-area{
+
+}
+.cartDiv.single-room-area .room-thumbnail{
+    width: 20%;
+    flex: 0 0 20%;
+    max-width: 20%;
+}
+
+.cartDiv.single-room-area .room-thumbnail img{
+    width: 100%;
+}
+
+
+
+.cartDiv.single-room-area .room-content{
+    width: 70%;
+    flex: 0 0 70%;
+    max-width: 70%;
+}
+
+.cartDiv.single-room-area .tour-select{
+    width: 10%;
+    flex: 0 0 10%;
+    max-width: 10%;
+}
+
+
+.cartDiv.single-room-area .tour-select button{
+    line-height: 40px;
+    padding: 0 10px;
+    font-size: 40px;
+    position: absolute;
+    right: 0px;
+    top: 30%;
+}
+
+
+.cartDiv.single-room-area .tour-select button.btn-danger:hover {
+    color: #fff;
+    background-color: #a91b29;
+    border-color: #a91b29;
+}
+
+
+
+
+/*  single packagte */
+
+
+.single-package.single-room-area{
+
+}
+.single-package.single-room-area .room-thumbnail{
+    width: 30%;
+    flex: 0 0 30%;
+    max-width: 30%;
+}
+
+.single-package.single-room-area .room-thumbnail img{
+    width: 100%;
+}
+
+
+
+.single-package.single-room-area .room-content{
+    width: 70%;
+    flex: 0 0 70%;
+    max-width: 70%;
+}
