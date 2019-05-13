@@ -50,6 +50,7 @@
     <session id="406019390">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.opened" value="2" />
@@ -59,13 +60,13 @@
         <counts>
           <entry key="css" value="2" />
           <entry key="env" value="2" />
-          <entry key="php" value="40" />
+          <entry key="php" value="41" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key=".env file" value="2" />
-          <entry key="Blade" value="15" />
+          <entry key="Blade" value="16" />
           <entry key="CSS" value="2" />
           <entry key="PHP" value="25" />
         </counts>
@@ -131,6 +132,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/footer.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1648">
+              <caret line="186" column="35" selection-start-line="186" selection-start-column="17" selection-end-line="186" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
@@ -307,7 +317,7 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="43" />
     <option name="y" value="-11" />
     <option name="width" value="697" />
@@ -422,16 +432,15 @@
       <option name="presentableId" value="Default" />
       <updated>1557499984865</updated>
       <workItem from="1557499986295" duration="33119000" />
-      <workItem from="1557666163631" duration="11091000" />
+      <workItem from="1557666163631" duration="12118000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44210000" />
+    <option name="totallyTimeSpent" value="45237000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -515,13 +524,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/footer.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3162">
-          <caret line="186" column="35" selection-start-line="186" selection-start-column="17" selection-end-line="186" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -660,6 +662,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="66" column="13" selection-start-line="66" selection-start-column="13" selection-end-line="66" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/footer.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1648">
+          <caret line="186" column="35" selection-start-line="186" selection-start-column="17" selection-end-line="186" selection-end-column="35" />
         </state>
       </provider>
     </entry>
