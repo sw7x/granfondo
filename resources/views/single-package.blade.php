@@ -4,14 +4,16 @@
    
 
     <!-- Breadcrumb Area Start -->
-    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(img/bg-img/16.jpg);">
+    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url('{{ URL::to('/') }}/img/bg-img/16.jpg');">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcrumb-content text-center">
 
                         <h2 class="page-title">{{ $packageName != null ? $packageName : "Single Packges" }}</h2>
-                        <button class="btn btn--radius-2 btn-danger" type="">Submit</button>
+                        {{--
+                        <button class="btn btn--radius-2 btn-danger packageSubmit" type="" data-pid="{{$package_id}}">Submit</button>
+                        --}}
                         <nav aria-label="breadcrumb">
                           <!--  <ol class="breadcrumb justify-content-center">
                                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -170,6 +172,27 @@
     <!-- Call To Action Area End -->
 
 
+    <!-- Call To Action Area Start -->
+    <section class="roberto-cta-area">
+        <div class="container">
+            <div class="cta-content bg-img bg-overlay jarallax" style="background-image: url('{{ URL::to('/') }}/img/bg-img/18.jpg');">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-7">
+                        <div class="cta-text mb-50">
+                            <h2>Click submit to book this package</h2>
+                            <h6>contact (+94) 0778888888 or srilankagranfondo.com Directly</h6>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-5 text-right">
+                        <button class="btn btn--radius-2 btn-danger packageSubmit" type="" data-pid="{{$package_id}}">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Call To Action Area End -->
+
+
     <!-- Rooms Area End -->
     <!-- Partner Area Start -->
    <div class="partner-area">
@@ -178,21 +201,88 @@
                 <div class="col-12">
                     <div class="partner-logo-content d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="300ms">
                     
-                        <a href="#" class="partner-logo"><img src="img/core-img/p1.png" alt=""></a>
+                        <a href="#" class="partner-logo"><img src="{{ URL::to('/') }}/img/core-img/p1.png" alt=""></a>
                      
-                        <a href="#" class="partner-logo"><img src="img/core-img/p2.png" alt=""></a>
+                        <a href="#" class="partner-logo"><img src="{{ URL::to('/') }}/img/core-img/p2.png" alt=""></a>
                      
-                        <a href="#" class="partner-logo"><img src="img/core-img/p3.png" alt=""></a>
+                        <a href="#" class="partner-logo"><img src="{{ URL::to('/') }}/img/core-img/p3.png" alt=""></a>
                      
-                        <a href="#" class="partner-logo"><img src="img/core-img/p4.png" alt=""></a>
+                        <a href="#" class="partner-logo"><img src="{{ URL::to('/') }}/img/core-img/p4.png" alt=""></a>
                       
-                        <a href="#" class="partner-logo"><img src="img/core-img/p5.png" alt=""></a>
+                        <a href="#" class="partner-logo"><img src="{{ URL::to('/') }}/img/core-img/p5.png" alt=""></a>
                     </div>
                 </div>
             </div>
         </div>
     </div> 
     <!-- Partner Area End -->
+
+
+
+    <div class="sidebar-nav" id="floating-sidebar-nav">
+        <div class="category-list-div">
+            <ul class="nav" style="display: block;">
+                <li style="background: #f4791f;padding: 6px 5px 0px 5px;"><a class="taylorMadeLink" href="#" data-pid="{{$package_id}}" data-packageName="{{ $packageName != null ? $packageName : "Single Packges" }}">TaylorMade</a></li>
+                <li style="background: #f4791f;padding: 0px 5px 6px 5px;"><a class="taylorMadeLink" href="#" data-pid="{{$package_id}}" data-packageName="{{ $packageName != null ? $packageName : "Single Packges" }}">package</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <style>
+
+        .sidebar-nav {
+            position: relative;
+            border-radius: 2px;
+            overflow: hidden;
+            z-index: 9999;
+        }
+        .sidebar-nav .floating-sidebar-btn-div {
+            position: fixed;
+            top: 25%;
+            right: 0px;
+        }
+        .sidebar-nav .category-list-div {
+            right: 0px;
+            position: fixed;
+            top: 33%;
+            -webkit-transition: right 1s ease;
+            -moz-transition: right 1s ease;
+            -o-transition: right 1s ease;
+            transition: right 1s ease;
+        }
+        .sidebar-nav .category-list-div.in {
+            right: -100px;
+        }
+        .sidebar-nav .category-list-div ul li {
+            width: 100px;
+            text-align: center;
+        }
+        .sidebar-nav .category-list-div ul li a {
+            padding: 10px 2px 10px 2px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .sidebar-nav .category-list-div ul li a.hover, .sidebar-nav .category-list-div ul li a.current {
+            background: #fff;
+            color: #f58220;
+        }
+        .sidebar-nav .category-list-div ul li a.active, .sidebar-nav .category-list-div ul li a.focus {
+            /*outline-color: -webkit-focus-ring-color;*/
+            /*outline-style: auto;*/
+            /*outline-width: 5px;*/
+            /*background: #fff;*/
+            /*color: #f58220;*/
+        }
+
+
+
+
+
+
+    </style>
 
 
     @include('footer')

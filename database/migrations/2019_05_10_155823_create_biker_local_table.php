@@ -18,7 +18,8 @@ class CreateBikerLocalTable extends Migration
             $table->bigIncrements('id');
             $table->string('fname', 15);
             $table->string('lname', 15);
-            $table->string('nationalty', 20);
+            $table->string('email', 75);
+            $table->string('nationality', 20);
             $table->enum('gender', [ 'male' , 'female']);
             $table->string('nic', 10);
             $table->enum('race_type', ['full-race' , 'half-race']);

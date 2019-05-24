@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Biker_foreign;
 use App\Biker_local;
 use App\Customer;
+use App\Mail\RegistrationEmail;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class BikerRegistrationController extends Controller
@@ -23,6 +25,7 @@ class BikerRegistrationController extends Controller
         $validator = Validator::make($request->all(),[
             'first_name'    => 'required|min:3|alpha',
             'last_name'     => 'required|min:3|alpha',
+            'email'         => 'required|email',
             'nationality'   => 'required|min:3|alpha_spaces',
             'gender'        => 'in:male,female',
             'nic'           => 'required|size:10',
@@ -50,6 +53,12 @@ class BikerRegistrationController extends Controller
                     throw new Exception('NIC already exist');
                 }
 
+                //check email is unique
+                $cRecord = $bikeLocal::where('email', $request->input('email'))->get();
+                if($cRecord->count()>0){
+                    throw new Exception('Email already exist');
+                }
+
                 //check phone number is unique
                 $cRecord = $bikeLocal::where('phone', $request->input('phone'))->get();
                 if($cRecord->count()>0){
@@ -58,13 +67,14 @@ class BikerRegistrationController extends Controller
 
 
 
-                $bikeLocal->fname      = $request->input('first_name');
-                $bikeLocal->lname      = $request->input('last_name');
-                $bikeLocal->nationalty = $request->input('nationality');
-                $bikeLocal->gender     = $request->input('gender');
-                $bikeLocal->nic        = $request->input('nic');
-                $bikeLocal->race_type  = $request->input('race_type');
-                $bikeLocal->phone      = $request->input('phone');
+                $bikeLocal->fname       = $request->input('first_name');
+                $bikeLocal->lname       = $request->input('last_name');
+                $bikeLocal->email       = $request->input('email');
+                $bikeLocal->nationality = $request->input('nationality');
+                $bikeLocal->gender      = $request->input('gender');
+                $bikeLocal->nic         = $request->input('nic');
+                $bikeLocal->race_type   = $request->input('race_type');
+                $bikeLocal->phone       = $request->input('phone');
                 $bikeLocal->save();
 
 
@@ -72,8 +82,16 @@ class BikerRegistrationController extends Controller
                 $customer = new Customer();
                 $customer->type 	='biker-local';
                 $customer->tbl_key  = $bikeLocal->id;
-                $customer->reg_code = $this->generateUniqueRegCode("loc");
+                $regCode            = $this->generateUniqueRegCode("loc");
+                $customer->reg_code = $regCode;
                 $customer->save();
+
+
+
+
+
+                Mail::to($bikeLocal->email)
+                    ->send(new RegistrationEmail($regCode,''));
 
 
                 DB::commit();
@@ -104,6 +122,7 @@ class BikerRegistrationController extends Controller
                 //insert into db fail
                 return redirect()->route('register-submit')->with( ['status'=>'Form Submit failed',
                     'msg' => $e->getMessage(),
+                    //'msg' => 'Error occurred while registration form submitting',
                     'title' => 'Registration Local - Submit Page'
                 ]);
 
@@ -126,6 +145,7 @@ class BikerRegistrationController extends Controller
         $validator = Validator::make($request->all(),[
             'first_name'    => 'required|min:3|alpha',
             'last_name'     => 'required|min:3|alpha',
+            'email'         => 'required|email',
             'nationality'   => 'required|min:3|alpha_spaces',
             'gender'        => 'in:male,female',
 
@@ -134,7 +154,7 @@ class BikerRegistrationController extends Controller
             'phone'         => 'required',
 
             'day_count'     => 'required|numeric|min:0|max:255',
-            'join_othres'   => 'required|numeric|min:0|max:255',
+            'join_others'   => 'required|numeric|min:0|max:255',
             'bicycle'       => 'in:yes,no',
 
         ]);
@@ -160,6 +180,12 @@ class BikerRegistrationController extends Controller
                     throw new Exception('NIC already exist');
                 }
 
+                //check email is unique
+                $cRecord = $bikerForeign::where('email', $request->input('email'))->get();
+                if($cRecord->count()>0){
+                    throw new Exception('Email already exist');
+                }
+
                 //check phone number is unique
                 $cRecord = $bikerForeign::where('phone', $request->input('phone'))->get();
                 if($cRecord->count()>0){
@@ -168,16 +194,17 @@ class BikerRegistrationController extends Controller
 
 
 
-                $bikerForeign->fname        = $request->input('first_name');
-                $bikerForeign->lname        = $request->input('last_name');
-                $bikerForeign->nationalty   = $request->input('nationality');
-                $bikerForeign->gender       = $request->input('gender');
-                $bikerForeign->passport     = $request->input('passport');
-                $bikerForeign->race_type    = $request->input('race_type');
-                $bikerForeign->phone        = $request->input('phone');
-                $bikerForeign->day_count    = $request->input('day_count');
-                $bikerForeign->join_othres  = $request->input('join_othres');
-                $bikerForeign->bicycle      = $request->input('bicycle');
+                $bikerForeign->fname            = $request->input('first_name');
+                $bikerForeign->lname            = $request->input('last_name');
+                $bikerForeign->email            = $request->input('email');
+                $bikerForeign->nationality      = $request->input('nationality');
+                $bikerForeign->gender           = $request->input('gender');
+                $bikerForeign->passport         = $request->input('passport');
+                $bikerForeign->race_type        = $request->input('race_type');
+                $bikerForeign->phone            = $request->input('phone');
+                $bikerForeign->day_count        = $request->input('day_count');
+                $bikerForeign->join_othres      = $request->input('join_others');
+                $bikerForeign->bicycle          = $request->input('bicycle');
                 $bikerForeign->save();
 
 
@@ -185,11 +212,17 @@ class BikerRegistrationController extends Controller
                 $customer = new Customer();
                 $customer->type 	='biker-foreign';
                 $customer->tbl_key  = $bikerForeign->id;
-                $customer->reg_code = $this->generateUniqueRegCode("for");
+                $regCode            = $this->generateUniqueRegCode("for");
+                $customer->reg_code = $regCode;
                 $customer->save();
 
 
+                Mail::to($bikerForeign->email)
+                    ->send(new RegistrationEmail($regCode,''));
+
+
                 DB::commit();
+
 
                 //insert into db success
                 return redirect()->route('register-submit')->with( ['status'=>'Form Submit success',
@@ -218,6 +251,7 @@ class BikerRegistrationController extends Controller
                 //insert into db fail
                 return redirect()->route('register-submit')->with( ['status'=>'Form Submit failed',
                     'msg' => $e->getMessage(),
+                    //'msg'   => 'Error occurred while registration form submitting',
                     'title' => 'Registration Foreign - Submit Page'
                 ]);
 

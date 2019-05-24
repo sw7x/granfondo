@@ -53,7 +53,7 @@
         <!-- Search Form -->
         <div class="search-form d-flex align-items-center">
             <div class="container">
-                <form action="index.php" method="get">
+                <form action="#" method="get">
                     <input type="search" name="search-form-input" id="searchFormInput" placeholder="Type your keyword ...">
                     <button type="submit"><i class="icon_search"></i></button>
                 </form>
@@ -97,8 +97,8 @@
                     <nav class="classy-navbar justify-content-between" id="robertoNav">
 
                         <!-- Logo -->
-                        <a class="nav-brand" href="index.php">
-                            <img src="img/core-img/logo.png" alt="">
+                        <a class="nav-brand" href="{{route('home')}}">
+                            <img src="{{ URL::to('/') }}/img/core-img/logo.png" alt="">
                         </a>
 
                         <!-- Navbar Toggler -->
@@ -126,7 +126,7 @@
                                     
                                     <li><a href="{{route('packages')}}">Packages</a>
                                         <ul class="dropdown packages">
-                                            <li><a href="{{route('package-by-name','adventure-and-sports')}}">culture & heritage</a></li>
+                                            <li><a href="{{route('package-by-name','culture-and-heritage')}}">culture & heritage</a></li>
                                             <li><a href="{{route('package-by-name','beaches')}}">beaches</a></li>
                                             <li><a href="{{route('package-by-name','nature-and-wild-life')}}">nature & wild life</a></li>
                                             <li><a href="{{route('package-by-name','tea-trails-and-scenic-beauty')}}">tea trails & scenic beauty</a></li>
@@ -161,7 +161,7 @@
 
                                 <!-- Book Now -->
                                 <div class="book-now-btn ml-3 ml-lg-5">
-                                    <a  data-toggle="modal" data-target="#choose-reg-modal" href="register.php">Register <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                                    <a  data-toggle="modal" data-target="#choose-reg-modal" href="#">Register <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                                 </div>
 
                                    

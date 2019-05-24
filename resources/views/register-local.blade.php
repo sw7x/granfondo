@@ -38,6 +38,7 @@
 
                     
                     <form method="POST" action="{{route('register-local-submit')}}">
+
                         <div class="row row-space">
                             <div class="col-6">
                                 <div class="input-group">
@@ -61,6 +62,20 @@
                             </div>
                         </div>
                         {{csrf_field ()}}
+
+                        <div class="row row-space">
+                            <div class="col-12">
+                                <div class="input-group">
+                                    <label class="label">email</label>
+                                    <input class="input--style-4" type="email" name="email" value="{{ old('email')}}" required>
+                                    @if ($errors->has('email'))
+                                        <div class="error">{{ $errors->first('email') }}</div>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+
                         <div class="row row-space">
                             <div class="col-6">
                                 <div class="input-group">
@@ -122,7 +137,7 @@
                        
                             <div class="col-6">
                                 <div class="input-group">
-                                    <label class="text">Phone Number</label>
+                                    <label class="text">Mobile (WhatsApp/Viber)</label>
                                     <input class="input--style-4" type="text" name="phone" value="{{ old('phone')}}" required>
                                 </div>
                                 @if ($errors->has('phone'))

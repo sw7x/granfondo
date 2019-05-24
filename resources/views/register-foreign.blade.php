@@ -32,9 +32,12 @@
         <div class="wrapper wrapper--w680">
             <div class="card card-4">
                 <div class="card-body">
-                    <h2 class="title">Registration Form - Foreign</h2>
 
-                        <form method="POST" action="{{route('register-foreign-submit')}}">
+
+                    {{--{{$_POST['api_url']}}--}}
+                    <h2 class="title">{{$title}} </h2>
+
+                        <form method="POST" action="{{route($form_action_route)}}">
                             <div class="row row-space">
                                 <div class="col-6">
                                     <div class="input-group">
@@ -56,6 +59,21 @@
                                 </div>
                             </div>
                             {{csrf_field ()}}
+
+                            <input type="hidden" name="package-id" value="{{ $package_id != 'null' ? $package_id : old('package-id') }}">
+
+
+                            <div class="row row-space">
+                                <div class="col-12">
+                                    <div class="input-group">
+                                        <label class="label">email</label>
+                                        <input class="input--style-4" type="email" name="email" value="{{ old('email')}}" required>
+                                        @if ($errors->has('email'))
+                                            <div class="error">{{ $errors->first('email') }}</div>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="row row-space">
                                 <div class="col-6">
@@ -109,14 +127,14 @@
                                                 <span class="checkmark"></span>
                                             </label>
                                         </div>
-                                     @if ($errors->has('gender'))
-                                         <div class="error">{{ $errors->first('gender') }}</div>
+                                     @if ($errors->has('race_type'))
+                                         <div class="error">{{ $errors->first('race_type') }}</div>
                                      @endif
                                  </div>
 
                                 <div class="col-6">
                                     <div class="input-group">
-                                        <label class="label">Phone Number</label>
+                                        <label class="label">Mobile (WhatsApp/Viber)</label>
                                         <input class="input--style-4" type="text" name="phone" value="{{ old('phone')}}" required>
                                         @if ($errors->has('phone'))
                                             <div class="error">{{ $errors->first('phone') }}</div>
@@ -135,9 +153,9 @@
 
                             <div class="input-group">
                                 <label class="label">Number of Any other non participant(s) who will join with you.</label>
-                                <input class="input--style-4" type="text" name="join_othres" placeholder="" value="{{ old('join_othres')}}" required>
-                                @if ($errors->has('join_othres'))
-                                    <div class="error">{{ $errors->first('join_othres') }}</div>
+                                <input class="input--style-4" type="text" name="join_others" placeholder="" value="{{ old('join_others')}}" required>
+                                @if ($errors->has('join_others'))
+                                    <div class="error">{{ $errors->first('join_others') }}</div>
                                 @endif
                             </div>
 

@@ -15,7 +15,7 @@ class CreateCustomerTable extends Migration
     {
         Schema::create('customer', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->enum('type', ['biker-local', 'biker-foreign' , 'people']);
+            $table->enum('type', ['biker-local', 'biker-foreign' , 'tourist']);
             $table->integer('tbl_key');
             $table->string('reg_code', 12);
             $table->timestamps();

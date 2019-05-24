@@ -16,7 +16,7 @@ class Biker_local extends Model
      */
     public function customer()
     {
-        return $this->belongsTo('App\Customer',	'tbl_key');
+        return $this->belongsTo('App\Customer',	'tbl_key','id');
     }
 
 

@@ -8,7 +8,7 @@
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="single-footer-widget mb-80">
                             <!-- Footer Logo -->
-                            <a href="#" class="footer-logo"><img src="img/core-img/logo2.png" alt=""></a>
+                            <a href="#" class="footer-logo"><img src="{{ URL::to('/') }}/img/core-img/logo2.png" alt=""></a>
 
                             <h4>+94 *********</h4>
                             <span>srilankagranfondo@gmail.com</span>
@@ -44,9 +44,9 @@
 
                             <!-- Footer Nav -->
                             <ul class="footer-nav">
-                                <li><a href="index.php"><i class="fa fa-caret-right" aria-hidden="true"></i> Home</a></li>
-                                <li><a href="#about-section"><i class="fa fa-caret-right" aria-hidden="true"></i> about Us</a></li>
-                                <li><a href="#map-section"><i class="fa fa-caret-right" aria-hidden="true"></i> Map</a></li>
+                                <li><a href="{{route('home')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Home</a></li>
+                                <li><a href="{{route('home')}}#about-section"><i class="fa fa-caret-right" aria-hidden="true"></i> about Us</a></li>
+                                <li><a href="{{route('home')}}#map-section"><i class="fa fa-caret-right" aria-hidden="true"></i> Map</a></li>
                                 <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Blog</a></li>
                             </ul>
                         </div>
@@ -111,11 +111,16 @@
 
     <script src="{{ URL::to('/') }}/vendor/datepicker/daterangepicker.js"></script>
 
+    <script src='https://cdn.jsdelivr.net/npm/sweetalert2'></script>
+
+
 
     <script src="{{ URL::to('/') }}/vendor/countdowntime/moment.min.js"></script>
     <script src="{{ URL::to('/') }}/vendor/countdowntime/moment-timezone.min.js"></script>
     <script src="{{ URL::to('/') }}/vendor/countdowntime/moment-timezone-with-data.min.js"></script>
     <script src="{{ URL::to('/') }}/vendor/countdowntime/countdowntime.js"></script>
+
+
     <script>
 
 
@@ -185,7 +190,180 @@
     </script>
 <!--===============================================================================================-->
     <script src="{{ URL::to('/') }}/js/main.js"></script>
+    <script>
+        $(document).on('click','.packageSubmit',function (event) {
 
+
+
+            var pid = $(this).data('pid');
+
+
+            Swal.mixin({
+
+                confirmButtonText: 'Next &rarr;',
+                showCancelButton: true,
+                //progressSteps: ['1', '2', '3']
+            }).fire({
+                input: 'radio',
+                title: 'Already registered',
+                text: '',
+                inputOptions: {
+                    'yes': 'Yes',
+                    'no': 'No',
+                },
+                preConfirm: (result) => {
+
+                    if (result=='yes' || result=='no') {
+
+                    }else{
+                        Swal.showValidationMessage('First input missing');
+                    }
+
+                    console.log(result);
+                },
+                inputValidator: function(result) {}
+            }).then((result) => {
+
+                //alert(result.value);
+                //console.log(result.value);
+                //alert('pid ' + pid);
+
+                if(result.value == 'yes'){
+                    Swal.fire({
+                        input: 'text',
+                        title: 'Type your Register code',
+                        text: '',
+                        inputValidator: function(result) {
+
+                        },
+                        preConfirm: (result) => {
+
+                            console.log('ssss' + result);
+                            if (result=='') {
+                                Swal.showValidationMessage('Register code cannot be empty');
+                            }
+                            if (pid=='') {
+                                Swal.showValidationMessage('Package id Invalid');
+                            }
+
+                        },
+
+                    }).then((result) => {
+
+
+                        if( typeof result.value !== "undefined")
+                        {
+                            var t = packageRegister(result.value,pid);
+                            console.log(t);
+
+
+                        }
+                    });
+
+                }else if(result.value == 'no'){
+
+
+                    //load tourist form and send package id
+                    var url = '/tourist_register_form';
+                    var form = $('<form action="' + url + '" method="post">' +
+                        '<input type="text" name="package_id" value="' + pid + '" />' +
+                        '{{csrf_field ()}}'+
+                        '</form>');
+                    $('body').append(form);
+                    form.submit();
+                }
+
+            });
+
+        });
+
+
+
+        //check reg number exists
+        //check already submit regcode
+        //do package submit
+        function packageRegister(regCode,packageId){
+            //alert('reg number - [' + regCode + '], packageId - [ ' + packageId + ' ]');
+
+
+            return $.ajax({
+
+                type: "POST",
+                dataType:'json',
+                //url:"ajaxtest.php",
+                url:'/package/resgister',///////
+                async:true,
+                data:{
+                    "_token"    : "{{ csrf_token() }}",
+                    "regCode"   : regCode,
+                    "packageId" : packageId
+                },
+                beforeSend: function() {
+                    //var btn = Swal.getConfirmButton();
+                    //console.log(btn);
+                },
+                success:function(data){
+                    console.log(data);
+                    console.log();
+                    console.log();
+
+
+                    Swal.fire({
+                        //position: 'top-end',
+                        type    : data['status'],
+                        title   : data['title'],
+                        text    : data['message'],
+                        //showConfirmButton: false,
+                        //timer: 1500
+                    })
+
+
+                },
+                error:function(request,errorType,errorMessage){
+
+                    Swal.fire({
+                        //position: 'top-end',
+                        type    : 'error',
+                        title   : 'Error',
+                        text    : 'Error occurred while doing package submission',
+                        //showConfirmButton: false,
+                        //timer: 1500
+                    });
+                    //  $("button.submit").prop('disabled', false);
+                    //  $("button.submit").text('Request a free quote');
+                    //  alert ('error - '+errorType+'with message - '+errorMessage);
+                }
+
+            });
+
+
+
+
+        }
+        
+        
+        $(document).on('click','.taylorMadeLink',function (event) {
+
+            var pid         = $(this).data('pid');
+            var url         = '/taylor-made-form';
+            var packageName = $(this).data('packagename');
+
+
+            var form = $('<form action="' + url + '" method="post">' +
+                '<input type="text" name="package_id" value="' + pid + '" />' +
+                '<input type="text" name="packageName" value="' + packageName + '" />' +
+                '{{csrf_field ()}}'+
+                '</form>');
+            $('body').append(form);
+            form.submit();
+
+            event.preventDefault();
+            
+        })
+        
+        
+        
+    </script>
 
 
 </body>

@@ -17,13 +17,14 @@ class CreateBikerForeignTable extends Migration
             $table->bigIncrements('id');
             $table->string('fname', 15);
             $table->string('lname', 15);
-            $table->string('nationalty', 20);
+            $table->string('email', 75);
+            $table->string('nationality', 20);
             $table->enum('gender', [ 'male' , 'female']);
             $table->string('passport', 30);
             $table->enum('race_type', ['full-race' , 'half-race']);
             $table->string('phone', 20);
             $table->tinyInteger('day_count');
-            $table->tinyInteger('join_othres');
+            $table->tinyInteger('join_others');
             $table->enum('bicycle', [ 'yes' , 'no']);
             $table->timestamps();
 

@@ -4,7 +4,7 @@
    
 
     <!-- Breadcrumb Area Start -->
-    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(img/bg-img/16.jpg);">
+    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url('{{ URL::to('/') }}/img/bg-img/16.jpg');">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -235,15 +235,15 @@
                 <div class="col-12">
                     <div class="partner-logo-content d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="300ms">
                     
-                        <a href="#" class="partner-logo"><img src="img/core-img/p1.png" alt=""></a>
+                        <a href="#" class="partner-logo"><img src="{{ URL::to('/') }}/img/core-img/p1.png" alt=""></a>
                      
-                        <a href="#" class="partner-logo"><img src="img/core-img/p2.png" alt=""></a>
+                        <a href="#" class="partner-logo"><img src="{{ URL::to('/') }}/img/core-img/p2.png" alt=""></a>
                      
-                        <a href="#" class="partner-logo"><img src="img/core-img/p3.png" alt=""></a>
+                        <a href="#" class="partner-logo"><img src="{{ URL::to('/') }}/img/core-img/p3.png" alt=""></a>
                      
-                        <a href="#" class="partner-logo"><img src="img/core-img/p4.png" alt=""></a>
+                        <a href="#" class="partner-logo"><img src="{{ URL::to('/') }}/img/core-img/p4.png" alt=""></a>
                       
-                        <a href="#" class="partner-logo"><img src="img/core-img/p5.png" alt=""></a>
+                        <a href="#" class="partner-logo"><img src="{{ URL::to('/') }}/img/core-img/p5.png" alt=""></a>
                     </div>
                 </div>
             </div>

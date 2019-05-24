@@ -3,7 +3,7 @@
    @include('header')
 
     <!-- Single Welcome Slide -->
-    <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url(img/bg-img/8.jpg);" data-img-url="img/bg-img/8.jpg">
+    <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url('{{ URL::to('/') }}/img/bg-img/8.jpg');" data-img-url="'{{ URL::to('/') }}/img/bg-img/8.jpg">
         <!-- Welcome Content -->
         <div class="welcome-content h-100">
             <div class="container h-100">
@@ -50,15 +50,15 @@
                 <div class="col-12">
                     <div class="partner-logo-content d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="300ms">
                    
-                        <a href="#" class="partner-logo"><img src="img/core-img/p1.png" alt=""></a>
+                        <a href="#" class="partner-logo"><img src="{{ URL::to('/') }}/img/core-img/p1.png" alt=""></a>
                       
-                        <a href="#" class="partner-logo"><img src="img/core-img/p2.png" alt=""></a>
+                        <a href="#" class="partner-logo"><img src="{{ URL::to('/') }}/img/core-img/p2.png" alt=""></a>
                         
-                        <a href="#" class="partner-logo"><img src="img/core-img/p3.png" alt=""></a>
+                        <a href="#" class="partner-logo"><img src="{{ URL::to('/') }}/img/core-img/p3.png" alt=""></a>
                        
-                        <a href="#" class="partner-logo"><img src="img/core-img/p4.png" alt=""></a>
+                        <a href="#" class="partner-logo"><img src="{{ URL::to('/') }}/img/core-img/p4.png" alt=""></a>
                         
-                        <a href="#" class="partner-logo"><img src="img/core-img/p5.png" alt=""></a>
+                        <a href="#" class="partner-logo"><img src="{{ URL::to('/') }}/img/core-img/p5.png" alt=""></a>
                     </div>
                 </div>
             </div>
@@ -157,7 +157,7 @@
 
 
       <!-- map Area Start -->
-    <div class="roberto--video--area bg-img bg-overlay jarallax section-padding-0-100" style="background-image: url(img/bg-img/18.jpg);" >
+    <div class="roberto--video--area bg-img bg-overlay jarallax section-padding-0-100" style="background-image: url('{{ URL::to('/') }}/img/bg-img/18.jpg'30$ For per person);" >
         <div class="container h-100">
             <div class="row h-100 align-items-center justify-content-center">
                 <div class="col-12 col-md-6">
@@ -241,7 +241,7 @@
     <!-- Call To Action Area Start -->
     <section class="roberto-cta-area">
         <div class="container">
-            <div class="cta-content bg-img bg-overlay jarallax" style="background-image: url(img/bg-img/18.jpg);">
+            <div class="cta-content bg-img bg-overlay jarallax" style="background-image: url('{{ URL::to('/') }}/img/bg-img/18.jpg');">
                 <div class="row align-items-center">
                     <div class="col-12 col-md-7">
                         <div class="cta-text mb-50">
@@ -259,13 +259,13 @@
     <!-- Call To Action Area End -->
     <br><br>
 
- <!-- Our Room Area Start -->
+    <!-- Our Room Area Start -->
     <section class="roberto-rooms-area">
         <div class="rooms-slides owl-carousel">
             <!-- Single Room Slide -->
             <div class="single-room-slide d-flex align-items-center">
                 <!-- Thumbnail -->
-                <div class="room-thumbnail h-100 bg-img" style="background-image: url(img/bg-img/19.jpg);"></div>
+                <div class="room-thumbnail h-100 bg-img" style="background-image: url('{{ URL::to('/') }}/img/bg-img/19.jpg');"></div>
 
                 <!-- Content -->
                 <div class="room-content">
@@ -284,7 +284,7 @@
             <!-- Single Room Slide -->
             <div class="single-room-slide d-flex align-items-center">
                 <!-- Thumbnail -->
-                <div class="room-thumbnail h-100 bg-img" style="background-image: url(img/bg-img/20.jpg);"></div>
+                <div class="room-thumbnail h-100 bg-img" style="background-image: url('{{ URL::to('/') }}/img/bg-img/20.jpg');"></div>
 
                 <!-- Content -->
                 <div class="room-content">
@@ -308,7 +308,7 @@
         <!-- Projects Slide -->
         <div class="projects-slides owl-carousel">
             <!-- Single Project Slide -->
-            <div class="single-project-slide active bg-img" style="background-image: url(img/bg-img/19.jpg);">
+            <div class="single-project-slide active bg-img" style="background-image: url('{{ URL::to('/') }}/img/bg-img/19.jpg');">
                 <!-- Project Text -->
                 <div class="project-content">
                     <div class="text">
@@ -328,7 +328,7 @@
             </div>
 
             <!-- Single Project Slide -->
-            <div class="single-project-slide bg-img" style="background-image: url(img/bg-img/20.jpg);">
+            <div class="single-project-slide bg-img" style="background-image: url('{{ URL::to('/') }}/img/bg-img/20.jpg');">
                 <!-- Project Text -->
                 <div class="project-content">
                     <div class="text">
@@ -348,7 +348,7 @@
             </div>
 
             <!-- Single Project Slide -->
-            <div class="single-project-slide bg-img" style="background-image: url(img/bg-img/24.jpg);">
+            <div class="single-project-slide bg-img" style="background-image: url('{{ URL::to('/') }}/img/bg-img/24.jpg');">
                 <!-- Project Text -->
                 <div class="project-content">
                     <div class="text">
@@ -368,7 +368,7 @@
             </div>
 
             <!-- Single Project Slide -->
-            <div class="single-project-slide bg-img" style="background-image: url(img/bg-img/21.jpg);">
+            <div class="single-project-slide bg-img" style="background-image: url('{{ URL::to('/') }}/img/bg-img/21.jpg');">
                 <!-- Project Text -->
                 <div class="project-content">
                     <div class="text">
@@ -388,7 +388,7 @@
             </div>
 
             <!-- Single Project Slide -->
-            <div class="single-project-slide bg-img" style="background-image: url(img/bg-img/23.jpg);">
+            <div class="single-project-slide bg-img" style="background-image: url('{{ URL::to('/') }}/img/bg-img/23.jpg');">
                 <!-- Project Text -->
                 <div class="project-content">
                     <div class="text">
@@ -409,7 +409,7 @@
              
                         
                         <h5>     <!-- Single Project Slide -->
-            <div class="single-project-slide bg-img" style="background-image: url(img/bg-img/25.jpg);">
+            <div class="single-project-slide bg-img" style="background-image: url('{{ URL::to('/') }}/img/bg-img/25.jpg');">
                 <!-- Project Text -->
                 <div class="project-content">
                     <div class="text">
