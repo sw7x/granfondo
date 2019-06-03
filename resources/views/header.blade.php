@@ -150,7 +150,7 @@
                                                 </li>
                                             </ul> -->
                                     </li>
-                                    <li><a href="{{route('default-page')}}">Default page</a></li>
+                                    <li><a href="{{route('contact')}}">contact us</a></li>
                                     <!-- <li><a href="#">Blog</a></li>    -->                               
                                 </ul>
 

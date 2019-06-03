@@ -65,7 +65,7 @@ Route::get('/packages/{packageName}', 'PackageController@singlePackage')->name('
 
 Route::get('/contact', function () {
     return view('contact');
-});
+})->name('contact');
 
 
 
